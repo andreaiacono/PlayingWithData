@@ -2,11 +2,14 @@ require(RgoogleMaps)
 
 ### loads data ###
 
+// sets current directory
+setwd("/home/andrea/Programming/code/R/PlayingWithData/")
+
 # loads the schools info
-schools <- read.csv(file="/home/andrea/Dropbox/code/R/PlayingWithData/data/schools.csv")
+schools <- read.csv(file="data/schools.csv")
 
 # loads the abandonments info identified by a school id (cod_scuola)
-abandonments <- read.csv(file="/home/andrea/Dropbox/code/R/PlayingWithData/data/quits.csv")
+abandonments <- read.csv(file="data/quits.csv")
 
 ### setup the data for our needs ###
 
