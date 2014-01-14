@@ -1,0 +1,6 @@
+cols <- gray.colors(64, 0, 0.8)
+cols <- heat.colors(16)
+cols <- topo.colors(16)
+cols <- cm.colors(16)
+cols <- terrain.colors(256)
+colorRampPalette(c("blue", "red"))( 4) 
