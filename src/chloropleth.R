@@ -24,10 +24,16 @@ spplot(regions, "Year.2012", col.regions=gray.colors(32, 0.9, 0.2), main="Unempl
 # adds a title to the legend
 grid.text("Number of unemployed people in thousands", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=90,  gp = gpar(fontsize = 12))
 
-# we now remove the outliers, reload the shapefile and plot it
+# removes the outliers
 unemployment$Year.2012[which(unemployment$NOME_PRO == 'NAPOLI' | unemployment$NOME_PRO == 'TORINO' | unemployment$NOME_PRO == 'ROMA'| unemployment$NOME_PRO == 'MILANO')] <- 0
+
+# reloads the shapefile
 regions <- readShapeSpatial("data/prov2011_g.shp")
+
+# adds the new unemployment data (without outliers)
 regions@data = data.frame(regions@data, unemployment[match(regions@data$NOME_PRO, unemployment$NOME_PRO),])
+
+# plots it, legend included
 spplot(regions, "Year.2012", col.regions=gray.colors(32, 0.9, 0.2), main="Unemployment in 2012")
 grid.text("Number of unemployed people in thousands (excluded Milan,Turin,Rome,Naples)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=90,  gp = gpar(fontsize = 12))
 
