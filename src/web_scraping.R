@@ -10,7 +10,8 @@ parsed <- htmlParse(url)
 # to the data types contained in the HTML table
 table <- readHTMLTable(parsed, skip.rows=c(1,3,4,5), colClasses = c(rep("integer", 31) ))
 
-# gets the vector with the actual data we're interested in
+# this web page contains seven HTML tables, but the one that contains the data
+# is the fifth
 values <- as.data.frame(table[5])
 
 # renames the columns for the period and Italy
