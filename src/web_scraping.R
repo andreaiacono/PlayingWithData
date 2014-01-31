@@ -23,7 +23,7 @@ colnames(values)[19] <- 'Italy'
 ids <- values[c(1,19)]
 
 # Italy has only 25 year of info, so we cut away the others
-ids <- as.data.frame(ds[1:25,])
+ids <- as.data.frame(ids[1:25,])
 
 # plots the data
 plot(ids, xlab="Year", ylab="Population in thousands", main="Population 1990-2014", pch=19, cex=0.5)
